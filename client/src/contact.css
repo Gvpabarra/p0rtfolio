@@ -1,0 +1,77 @@
+/* File: Contact.css */
+/* Modern, dark theme styling for the Contact page */
+
+.contact {
+    min-height: 80vh;
+    background: #121212; 
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 600px;
+  }
+  
+  .contact-container {
+    width: 100%;
+    max-width: 600px;
+    background: #1c1c1c;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .form-input,
+  .contact-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .form-input {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+  }
+  
+  .contact-button {
+    background-color: #1ea7fd;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #1584c7;
+  }
+  

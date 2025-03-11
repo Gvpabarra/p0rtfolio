@@ -1,0 +1,182 @@
+/* File: Home.css */
+
+/* Basic resets */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none; /* Prevent bounce on mobile if desired */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #000; /* Ensure background is black */
+  color: #fff;
+  height: 200vh; /* Extra height to allow parallax scrolling */
+}
+
+/* Loader (while content is loading) */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full viewport */
+  background: #000;
+  color: #fff;
+}
+
+/* Container to hold everything */
+.home-container {
+  position: relative;
+  overflow: hidden;
+  background: #000; /* Extra black background just in case */
+}
+
+/* Parallax layers */
+.parallax-layer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+/* Foreground image above the background */
+.foreground {
+  z-index: 100;
+}
+
+/* Background layer behind the foreground */
+.background {
+  z-index: 50;
+}
+
+/* Background image is full-width. */
+.background img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* If you'd like it darker, re-enable:
+   * opacity: 0.25;
+   */
+}
+
+/* Text overlay (fades out) */
+.text-overlay {
+  z-index: 150;
+  top: 26vw; /* from original code; adjust if needed */
+}
+
+/* Center + make text-img smaller */
+.text-overlay img {
+  display: block;
+  margin: 0 auto;
+  width: 300px; /* adjust as desired */
+  max-width: 90%;
+  height: auto;
+}
+
+/* Dark overlay for controlling how the user scrolls */
+.dark-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  height: 400vh; /* Extend overlay for multiple scroll screens */
+  padding-top: 56%; /* Space for parallax content */
+}
+
+.dark-overlay-inner {
+  background: #000;
+  height: 100%;
+  opacity: -5.5;
+}
+
+/* Main hero section, placed above the parallax layers */
+.home-hero {
+  position: relative;
+  margin-top: 60vw; /* So content appears below parallax images */
+  text-align: center;
+  z-index: 300; /* Above all parallax elements */
+
+  /* Subtle top fade for seamless transition:
+     from transparent at top to black at bottom. */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    #000 20%,
+    #000 100%
+    
+  );
+}
+
+/* Container for hero text */
+.home-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative; /* needed for stacking */
+  padding: 2rem 1rem; /* some padding all around */
+}
+
+/* Remove the black background from .home-text to make it transparent */
+.home-text {
+  /* background: #000; <- removed to make transparent */
+  background: transparent;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* By default, we'll hide the text elements to avoid flicker
+   until parallax triggers. We'll use two classes for 
+   left-slide vs. right-slide. */
+.hidden-left, .hidden-right {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* The default transform for each 'hidden-left' block:
+   placed slightly off-screen to the left. */
+.hidden-left {
+  transform: translateX(-100px);
+}
+
+/* The default transform for each 'hidden-right' block:
+   placed slightly off-screen to the right. */
+.hidden-right {
+  transform: translateX(100px);
+}
+
+/* Base text styling inside the .home-text container */
+.home-text h1,
+.home-text p,
+.home-text a {
+  margin: 1rem 0;
+  line-height: 1.4;
+}
+
+/* Button styling */
+.home-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #444;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.home-button:hover {
+  background: #777;
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  margin-top: 0rem;
+  padding: 1rem 0;
+  background: #000;
+  color: #fff;
+  position: relative;
+  z-index: 300; /* Ensures it appears above any parallax layers */
+}
