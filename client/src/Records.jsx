@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import "../src/records.css"; // Make sure this path is correct
+import "../src/records.css"; 
 
 const Records = () => {
   const [users, setUsers] = useState([]);

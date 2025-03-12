@@ -55,7 +55,7 @@ const Home = () => {
     },
   ];
 
-  // Parallax data for the text overlay image (fades out)
+  // Parallax data for the text overlay image
   const textOverlayParallaxData = [
     {
       start: 0,
@@ -70,7 +70,6 @@ const Home = () => {
     },
   ];
 
-  // *** HORIZONTAL PARALLAX for each text block ***
   const text1ParallaxData = [
     {
       start: 300,

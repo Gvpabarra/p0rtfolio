@@ -5,13 +5,13 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./contact.css";  // Ensure this file exists and is correctly linked
+import "./contact.css";
 
 const Contact = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstname: "", // Changed from firstName to match backend
-    lastname: "",  // Changed from lastName to match backend
+    firstname: "", 
+    lastname: "",  
     email: "",
   });
 
@@ -53,7 +53,7 @@ const Contact = () => {
           <div className="form-group">
             <input
               type="text"
-              name="firstname" // Changed from firstName
+              name="firstname" 
               placeholder="First Name"
               required
               value={formData.firstname}
@@ -62,7 +62,7 @@ const Contact = () => {
             />
             <input
               type="text"
-              name="lastname" // Changed from lastName
+              name="lastname"
               placeholder="Last Name"
               required
               value={formData.lastname}

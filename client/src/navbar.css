@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     gap: 25px;
-    margin-right: 20px; /* Adjusted to slightly right-align the menu */
+    margin-right: 20px; 
   }
   
   .nav-links a,
@@ -63,7 +63,6 @@
     color: #4bbfda;
   }
   
-  /* Make logout/signin look exactly like nav links */
   .nav-item {
     background: transparent;
     border: none;
@@ -74,7 +73,6 @@
     padding: inherit;
   }
   
-  /* Remove outline/borders completely */
   .nav-links,
   .nav {
     outline: none;

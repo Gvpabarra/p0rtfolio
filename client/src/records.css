@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-/* Grid layout: Users on left, Clients on right */
+/* Grid layout */
 .records-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

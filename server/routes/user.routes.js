@@ -6,7 +6,7 @@ import {
   update,
   remove,
   deleteAllUsers,
-  signin, // <-- ADD THIS
+  signin,
   userByID
 } from "../controllers/user.controller.js";
 
@@ -20,8 +20,8 @@ router.put("/users/:id", update);
 router.delete("/users/:id", remove);
 router.delete("/users", deleteAllUsers);
 
-// Sign-in route (NEW)
-router.post("/users/signin", signin); // <-- ADD THIS LINE
+// Sign-in route
+router.post("/users/signin", signin);
 
 // Parameter middleware
 router.param("id", userByID);

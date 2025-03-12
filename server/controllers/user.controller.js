@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import errorHandler from "../controllers/error.controller.js";
-import config from "../config.js"; // Ensure JWT_SECRET is set in config
+import config from "../config.js";
 
 // Create a new user (Signup)
 const create = async (req, res) => {
@@ -18,7 +18,7 @@ const create = async (req, res) => {
             return res.status(400).json({ error: "Email already registered" });
         }
 
-        // Save the new user with a plaintext password (No bcrypt)
+        // Save the new user with a plaintext password
         const user = new User({ name, email, password: password.trim() });
 
         await user.save();
@@ -34,21 +34,17 @@ const signin = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // ✅ Ensure password is retrieved from MongoDB
         let user = await User.findOne({ email }).select("+password");
 
         if (!user) return res.status(401).json({ error: "User not found" });
 
-        // ✅ Debugging logs (Check stored password vs. entered password)
         console.log("Stored Password:", user.password);
         console.log("Entered Password:", password.trim());
 
-        // ✅ Compare plaintext passwords
         if (password.trim() !== user.password) {
             return res.status(401).json({ error: "Incorrect password" });
         }
 
-        // ✅ Generate JWT Token
         const token = jwt.sign({ _id: user._id }, config.jwtSecret, { expiresIn: "7d" });
 
         res.cookie("t", token, { httpOnly: true });
@@ -106,7 +102,7 @@ const read = (req, res) => {
     });
 };
 
-// Update user details (No password hashing)
+// Update user details
 const update = async (req, res) => {
     try {
         let user = req.profile;
@@ -114,7 +110,7 @@ const update = async (req, res) => {
 
         if (name) user.name = name;
         if (email) user.email = email;
-        if (password) user.password = password.trim(); // No hashing, but trim to remove spaces
+        if (password) user.password = password.trim();
 
         user.updated = new Date();
         await user.save();

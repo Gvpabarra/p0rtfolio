@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoginRegister.css"; // Import the new CSS file
+import "./LoginRegister.css";
 
 const LoginRegister = () => {
   const navigate = useNavigate();
@@ -37,11 +37,10 @@ const LoginRegister = () => {
       if (response.ok) {
         localStorage.setItem("token", data.token);
 
-        // Force navbar update
         window.dispatchEvent(new Event("storage"));
 
         alert(isLogin ? "Login successful!" : "Registration successful!");
-        navigate("/records"); // Redirect to Records after login
+        navigate("/records");
       } else {
         alert(data.error || "Something went wrong.");
       }

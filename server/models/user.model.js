@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
         required: "Email is required"
     },
     password: {
-        type: String,  // ✅ Removed "select: false" to allow retrieving passwords
+        type: String,
         required: "Password is required"
     },
     created: {
